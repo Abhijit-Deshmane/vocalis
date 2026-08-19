@@ -11,7 +11,10 @@
   "dependencies": {
     "@base-ui/react": "^1.7.0",
     "@clerk/nextjs": "^7.7.8",
+    "@prisma/adapter-pg": "^7.9.1",
+    "@prisma/client": "^7.9.1",
     "@shadcn/react": "^0.3.0",
+    "@t3-oss/env-nextjs": "^0.13.11",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
@@ -21,6 +24,7 @@
     "lucide-react": "^1.32.0",
     "next": "16.3.1",
     "next-themes": "^0.4.6",
+    "pg": "^8.23.0",
     "radix-ui": "^1.6.7",
     "react": "19.2.8",
     "react-day-picker": "^10.0.1",
@@ -35,12 +39,16 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^20.19.43",
+    "@types/pg": "^8.23.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^17.4.2",
     "eslint": "^9",
     "eslint-config-next": "16.3.1",
+    "prisma": "^7.9.1",
     "tailwindcss": "^4",
+    "tsx": "^4.23.12",
     "typescript": "^5"
   }
 }
