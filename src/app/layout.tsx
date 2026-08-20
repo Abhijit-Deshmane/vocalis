@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { ClerkProvider, OrganizationSwitcher, Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
+import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
+import { ClerkProvider } from "@clerk/nextjs";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -15,35 +17,26 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Vocalis",
-  description: "Vocalis — voice-first collaboration platform",
+  description: "Vocalis - voice-first collaboration platform",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
-        <ClerkProvider>
-          <header style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', padding: '0.75rem 1.5rem', borderBottom: '1px solid #e5e7eb', gap: '0.75rem' }}>
-            <Show when="signed-out">
-              <SignInButton />
-              <SignUpButton />
-            </Show>
-            <Show when="signed-in">
-              <OrganizationSwitcher
-                afterCreateOrganizationUrl="/orgs/:slug/dashboard"
-                afterSelectOrganizationUrl="/orgs/:slug/dashboard"
-                afterLeaveOrganizationUrl="/"
-                afterSelectPersonalUrl="/"
-              />
-              <UserButton />
-            </Show>
-          </header>
-          {children}
-        </ClerkProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={`${inter.variable} ${geistMono.variable} antialiased`}
+        >
+          <TooltipProvider>
+            {children}
+          </TooltipProvider>
+          <Toaster />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
