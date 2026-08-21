@@ -37,10 +37,10 @@ export function QuickActionCard({
             {description}
           </p>
         </div>
-        <Button 
-          variant="outline" 
-          size="xs" 
-          className="w-fit" 
+        <Button
+          variant="outline"
+          size="xs"
+          className="w-fit"
           asChild
         >
           <Link href={href}>
