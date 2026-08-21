@@ -16,8 +16,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vocalis",
-  description: "Vocalis - voice-first collaboration platform",
+  title: {
+    default: "Vocalis",
+    template: "%s | Vocalis"
+  },
+  description: "Vocalis - AI-powered text-to-speech and voice cloning platform",
 };
 
 export default function RootLayout({
