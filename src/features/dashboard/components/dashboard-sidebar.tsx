@@ -126,7 +126,7 @@ export function DashboardSidebar() {
     },
     {
       title: "Help and support",
-      url: "mailto:business@codewithantonio.com",
+      url: "www.linkedin.com/in/abhijit-deshmane-726aaa3a2",
       icon: Headphones,
     },
   ];
